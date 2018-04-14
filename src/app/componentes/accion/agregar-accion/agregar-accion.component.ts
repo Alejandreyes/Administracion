@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+import {Accion} from '../../../modelos/accion.model';
 @Component({
   selector: 'app-agregar-accion',
   templateUrl: './agregar-accion.component.html',

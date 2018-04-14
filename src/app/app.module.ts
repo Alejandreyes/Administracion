@@ -22,6 +22,11 @@ import { GenerarReporteComponent } from './componentes/generar-reporte/generar-r
 import { CasosUsoComponent } from './componentes/casos-uso/casos-uso.component';
 import { AccionComponent } from './componentes/accion/accion.component';
 
+import {environment} from '../environments/environment';
+// Importar Servicios de Firebase
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreModule } from 'angularfire2/firestore'; 
+
 // Importar los sevicios declarados
 import {AccionService} from './servicios/accion.service';
 import {CasosUsoService}  from './servicios/casos-uso.service';
@@ -76,7 +81,10 @@ const routes: Routes = [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(routes),
+    AngularFireModule,
+    AngularFirestoreModule,
+    AngularFireModule.initializeApp(environment.firebase, 'angular-fs'),
+    RouterModule.forRoot(routes)
   ],
   providers: [
     AccionService,

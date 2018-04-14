@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+import {Usuario} from '../../../modelos/usuario.model';
 @Component({
   selector: 'app-agregar-usuario',
   templateUrl: './agregar-usuario.component.html',

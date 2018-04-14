@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {Proyecto} from '../../../modelos/proyecto.model';
 @Component({
   selector: 'app-eliminar-proyecto',
   templateUrl: './eliminar-proyecto.component.html',
