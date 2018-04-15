@@ -1,3 +1,54 @@
-<p>
-  usuario works!
-</p>
+<div class="row" *ngIf="usuarios?.length > 0 ; else noUsuarios">
+  <div class="col s4">
+    <h3>Usuarios</h3>
+    <table class="table highlight">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Rol</th>
+          <th>Editar</th>
+          <th>Borrar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let usuario of usuarios">
+          <td>{{usuario.nombre}}</td>
+          <td>{{usuario.rol}}</td>
+          <td>
+            <a class="btn btn-secondary blue darken-2" (click)="onEdit(product)">
+              <i class="material-icons">create</i>
+            </a>
+          </td>
+          <td>
+            <a class="btn btn-danger red darken-2 " (click)="onDelete(product.$key)">
+              <i class="material-icons ">delete</i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="row" style="margin-top:7%;">
+      <div class="col s6">
+        <a class="waves-effect waves-light btn-large">
+          <i class="material-icons left">find_in_page</i>Buscar</a>
+      </div>
+      <div class="col s2 offset-s4">
+        <a class="btn-floating btn-large waves-effect waves-light red ">
+          <i class="material-icons">add</i>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class=" col s4  ">
+    <app-proyectos></app-proyectos>
+  </div>
+  <div class=" col s4  ">
+    <app-casos-uso></app-casos-uso>
+  </div>
+</div>
+
+
+<ng-template #noUsuarios>
+  <h5>No existen usuarios </h5>
+</ng-template>

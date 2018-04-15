@@ -22,10 +22,12 @@ import { GenerarReporteComponent } from './componentes/generar-reporte/generar-r
 import { CasosUsoComponent } from './componentes/casos-uso/casos-uso.component';
 import { AccionComponent } from './componentes/accion/accion.component';
 
+import { MaterializeModule } from 'angular2-materialize'; 
+
 import {environment} from '../environments/environment';
 // Importar Servicios de Firebase
 import { AngularFireModule } from 'angularfire2';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreModule } from 'angularfire2/firestore'; 
+import { AngularFireDatabaseModule  } from 'angularfire2/database'; 
 
 // Importar los sevicios declarados
 import {AccionService} from './servicios/accion.service';
@@ -80,9 +82,9 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
+    MaterializeModule,
     ReactiveFormsModule,
-    AngularFireModule,
-    AngularFirestoreModule,
+    AngularFireDatabaseModule,
     AngularFireModule.initializeApp(environment.firebase, 'angular-fs'),
     RouterModule.forRoot(routes)
   ],
