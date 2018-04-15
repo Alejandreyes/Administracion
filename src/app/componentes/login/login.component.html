@@ -1,8 +1,8 @@
 <div class="row">
   <div class="col s7">
     <h5>Links</h5>
-    <p> Sistema de manejo de Proyectos de Software que permite facilitar el uso de herramientas utiles para el desarrollo
-      de un seguimiento de un proyecto de software más sencillo y mucho mas rapido.
+    <p> Sistema de manejo de Proyectos de Software que permite facilitar el uso de herramientas utiles para el desarrollo de
+      un seguimiento de un proyecto de software más sencillo y mucho mas rapido.
     </p>
   </div>
   <div class="center col s4">
@@ -10,28 +10,33 @@
       <div class="card-content">
         <span class="card-title">LOGIN</span>
         <div class="row">
-            <form class="col s12">
-              <div class="row">
-                <div class="input-field col s12">
-                  <i class="material-icons prefix">account_circle</i>
-                  <input id="icon_prefix" type="text" class="validate">
-                  <label for="icon_prefix">Nombre de usuario</label>
-                </div>
-                <div class="input-field col s12">
-                  <i class="material-icons prefix">vpn_key</i>
-                  <input id="password" type="tel" class="validate">
-                  <label for="password">Contraseña</label>
-                </div>
+          <form class="col s12" [formGroup]="usuarioForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+              <div class="input-field col s12">
+                <i class="material-icons prefix">account_circle</i>
+                <input formControlName="nombre" id="nombre" type="text" placeholder="example@example.com" class="validate">
+                <label for="nombre">Nombre de usuario</label>
+                <p class="red-text" *ngIf="usuarioForm.controls.nombre.invalid">
+                    El campo es obligatorio.
+                </p>
               </div>
-            </form>
-          </div>
-                
+              <div class="input-field col s12">
+                <i class="material-icons prefix">vpn_key</i>
+                <input formControlName="contrasenia" id="contrasenia" type="password" class="validate">
+                <label for="contrasenia">Contraseña</label>
+                <p class="red-text" *ngIf="usuarioForm.controls.contrasenia.invalid">
+                    El campo es obligatorio.
+                </p>
+              </div>
+            </div>
+            <div class="divider"></div>
+            <div class="section">
+              <button class="btn " type="submit">ENVIAR</button>
+              <button class="btn " type="reset">CANCELAR</button>
+            </div>
 
-
-      </div>
-      <div class="card-action">
-        <a href="#">ENVIAR</a>
-        <a href="#">CANCELAR</a>
+          </form>
+        </div>
       </div>
     </div>
   </div>
